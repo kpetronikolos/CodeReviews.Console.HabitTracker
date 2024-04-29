@@ -81,4 +81,18 @@ public static class UserInputHandler
 
         return finalInput;
     }
+
+    public static string GetStringInput(string message)
+    {
+        string output;
+        do
+        {
+            Console.Write(message);
+            output = Console.ReadLine();
+
+        } while (String.IsNullOrEmpty(output));
+
+
+        return output;
+    }
 }
