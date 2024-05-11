@@ -94,4 +94,19 @@ public class SqliteDataAccess
             return checkQuery > 0;
         }
     }
+
+    public int GetIntData(string sqlStatement, string connectionString)
+    {
+        using (var connection = new SqliteConnection(connectionString))
+        {
+            connection.Open();
+
+            var checkCmd = connection.CreateCommand();
+            checkCmd.CommandText = sqlStatement;
+
+            int checkQuery = Convert.ToInt32(checkCmd.ExecuteScalar());
+
+            return checkQuery;
+        }
+    }
 }
