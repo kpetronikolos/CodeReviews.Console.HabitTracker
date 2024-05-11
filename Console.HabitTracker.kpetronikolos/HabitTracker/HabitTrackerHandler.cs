@@ -194,6 +194,6 @@ public static class HabitTrackerHandler
 
     private static Habit GetHabitById(int id)
     {
-        return habits[id-1];
+        return habits.Where(x => x.Id == id).FirstOrDefault();
     }
 }
